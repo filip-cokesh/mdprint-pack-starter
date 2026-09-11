@@ -6,6 +6,9 @@ barvami, fonty a patičkou (včetně social odkazů s ikonami).
 
 *English guide: [README.md](README.md).*
 
+**Živé demo:** [filip-cokesh.github.io/mdprint-pack-starter](https://filip-cokesh.github.io/mdprint-pack-starter/) —
+Markdown zdroj vedle výsledku vysázeného tímto packem (CS/EN/DE).
+
 Pack je obyčejná složka načítaná za běhu — mdprint se nepřekládá:
 
 ```

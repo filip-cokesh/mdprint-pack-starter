@@ -6,6 +6,9 @@ fonts and footer (including social links with icons).
 
 *Česká verze návodu: [README.cs.md](README.cs.md).*
 
+**Live demo:** [filip-cokesh.github.io/mdprint-pack-starter](https://filip-cokesh.github.io/mdprint-pack-starter/) —
+Markdown source next to the result rendered with this pack (CS/EN/DE).
+
 A pack is just a folder loaded at run time — no rebuild of mdprint needed:
 
 ```
