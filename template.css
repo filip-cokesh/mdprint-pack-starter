@@ -1,0 +1,116 @@
+/* ===========================================================================
+   mdprint template pack — starter CSS
+   A layer loaded AFTER mdprint's screen.css and print.css: override only
+   what you brand. This file walks through the usual pieces top to bottom;
+   replace the accent color, logo sizing and fonts and you are done.
+   =========================================================================== */
+
+/* ---- 1) Accent color -------------------------------------------------------
+   One brand color used for the title, TOC numbers, figure numbers and links.
+   Pick a dark-enough tone for light mode (aim for contrast >= 4.5:1 on
+   white) and a LIGHTER step of the same hue for dark mode — a color that
+   works on white rarely works on near-black.                                */
+:root {
+  --brand-accent: #1f4d2e;             /* mdprint deep green */
+  --c-link: #1f4d2e;                   /* mdprint tokens you may reuse:     */
+  --c-link-visited: #143520;           /* --c-text, --c-muted, --c-border,  */
+}                                      /* --c-bg, --c-panel                 */
+
+/* dark mode = system preference, unless the reader flipped the ◐ toggle */
+@media screen and (prefers-color-scheme: dark) {
+  html:not(:has(#theme-invert:checked)) {
+    --brand-accent: #8fc3a3;
+    --c-link: #8fc3a3;
+    --c-link-visited: #b8dbc6;
+  }
+}
+/* light system + manual toggle to dark (same values as above) */
+@media screen and (prefers-color-scheme: light) {
+  html:has(#theme-invert:checked) {
+    --brand-accent: #8fc3a3;
+    --c-link: #8fc3a3;
+    --c-link-visited: #b8dbc6;
+  }
+}
+
+/* ---- 2) Fonts ---------------------------------------------------------------
+   --font-sans drives headings, the brand header/footer and captions; body
+   text stays in mdprint's embedded Libertinus Serif. Put your brand font
+   first. If it may not be redistributed, do NOT add it to [[fonts]] in
+   pack.toml — naming it here is enough (readers without it get the
+   fallback).                                                                */
+:root {
+  --font-sans: 'Libertinus Sans', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ---- 3) Brand header (first page only, not repeated in print) -------------- */
+header.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 0 0.7rem;
+  margin: 0 0 2rem;
+  border-bottom: 2.5px solid var(--brand-accent);
+  break-inside: avoid;
+}
+/* Square logo: fixed box. For a wide logo strip use
+   `height: 44px; width: auto;` instead — and if the logo already contains
+   your name, hide the text next to it:
+   `.brand-header .brand-name { display: none; }`                            */
+.brand-header img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.brand-header .brand-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  color: var(--c-text);
+}
+
+/* Logo variants: logo-light.png shows by default, logo-dark.png in dark
+   mode. Specificity note — the default hiding must beat
+   `.brand-header img` (0,1,1), hence the two-class selector (0,2,0); the
+   mode rules contain an #id inside :has()/:not() and beat both.            */
+.brand-header .brand-logo-dark { display: none; }
+@media screen and (prefers-color-scheme: dark) {
+  html:not(:has(#theme-invert:checked)) .brand-logo-light { display: none; }
+  html:not(:has(#theme-invert:checked)) .brand-logo-dark { display: block; }
+}
+@media screen and (prefers-color-scheme: light) {
+  html:has(#theme-invert:checked) .brand-logo-light { display: none; }
+  html:has(#theme-invert:checked) .brand-logo-dark { display: block; }
+}
+
+/* ---- 4) Accented details ---------------------------------------------------- */
+.doc-title { color: var(--brand-accent); }          /* document title        */
+.fignum { color: var(--brand-accent); }             /* "Fig. N" numbers      */
+nav.toc li::before { color: var(--brand-accent); }  /* TOC numbering         */
+
+/* ---- 5) Footer --------------------------------------------------------------
+   Content comes from [company] and [[links]] in pack.toml; here just the
+   look. The .brand-links row and dark-mode icon inversion are styled by
+   mdprint itself — override only if you want something else.               */
+footer.brand-footer {
+  margin-top: 3rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--c-border);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  break-inside: avoid;
+}
+footer.brand-footer .brand-footer-name { font-weight: 700; color: var(--c-text); }
+
+/* ---- 6) Print ---------------------------------------------------------------
+   Print is always light: force the light logo and hard-code the accent
+   (CSS variables from the dark blocks never apply — media screen — but
+   being explicit keeps the intent obvious).                                */
+@media print {
+  .brand-header .brand-logo-light { display: block !important; }
+  .brand-header .brand-logo-dark { display: none !important; }
+  header.brand-header { border-bottom-color: #1f4d2e; }
+  .doc-title, .fignum, nav.toc li::before { color: #1f4d2e; }
+}

@@ -1,0 +1,56 @@
+# ===========================================================================
+# mdprint template pack — starter
+#
+# A pack is just this folder: pack.toml (this file) + template.css, plus
+# optional logos, fonts and icons. Point mdprint at it with
+#   mdprint --template path/to/this/folder document.md
+# or `template = "..."` in mdprint.toml / the document's front matter.
+#
+# Czech guide / český návod: README.cs.md
+# ===========================================================================
+
+[pack]
+# Internal pack name (shows up nowhere in the output — identification only).
+name = "starter"
+
+# ---------------------------------------------------------------------------
+# [company] — the document footer. Every field is OPTIONAL: fill in what you
+# want, delete the rest. Any field can be overridden per project by a
+# [company] section in mdprint.toml next to the document.
+# ---------------------------------------------------------------------------
+[company]
+name = "mdprint starter pack"          # bold first line of the footer
+# address = "Street 1, 123 45 City"
+# ico = "12345678"                     # Czech company ID (prints as "IČ …")
+# dic = "CZ12345678"                   # Czech VAT ID (prints as "DIČ …")
+# web = "www.example.com"
+# email = "info@example.com"
+
+# ---------------------------------------------------------------------------
+# [[links]] — social / project links in the footer (mdprint >= 0.4.0).
+# Repeat the block for each link. `icon` is optional and must be an .svg or
+# .png file INSIDE the pack folder; it is inlined into the HTML, and in dark
+# mode monochrome icons are automatically inverted to white.
+# ---------------------------------------------------------------------------
+[[links]]
+label = "GitHub"
+url = "https://github.com/filip-cokesh/mdprint"
+icon = "icons/github.svg"
+
+# [[links]]
+# label = "LinkedIn"
+# url = "https://www.linkedin.com/in/your-profile"
+# icon = "icons/linkedin.svg"
+
+# ---------------------------------------------------------------------------
+# [[fonts]] — optional brand fonts, embedded into the HTML as base64 WOFF2.
+# Only embed fonts whose license allows redistribution! For a licensed
+# corporate font, skip this section and reference it by name in template.css
+# (`--font-sans: 'Corporate Font', Arial, sans-serif;`) — it will be used
+# only where it is installed locally, everyone else gets the fallback.
+# ---------------------------------------------------------------------------
+# [[fonts]]
+# file = "fonts/BrandFont-Bold.woff2"  # must be .woff2, inside the pack
+# family = "Brand Font"
+# weight = 700
+# style = "normal"                     # or "italic"
