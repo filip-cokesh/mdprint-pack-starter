@@ -8,6 +8,10 @@ fonts and footer (including social links with icons).
 
 **Live demo:** [filip-cokesh.github.io/mdprint-pack-starter](https://filip-cokesh.github.io/mdprint-pack-starter/) —
 Markdown source next to the result rendered with this pack (CS/EN/DE).
+Printed PDF with page numbers and the brand footer:
+[CS](https://filip-cokesh.github.io/mdprint-pack-starter/doc-cs-normal.pdf) ·
+[EN](https://filip-cokesh.github.io/mdprint-pack-starter/doc-en-normal.pdf) ·
+[DE](https://filip-cokesh.github.io/mdprint-pack-starter/doc-de-normal.pdf).
 
 A pack is just a folder loaded at run time — no rebuild of mdprint needed:
 

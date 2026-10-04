@@ -8,6 +8,10 @@ barvami, fonty a patičkou (včetně social odkazů s ikonami).
 
 **Živé demo:** [filip-cokesh.github.io/mdprint-pack-starter](https://filip-cokesh.github.io/mdprint-pack-starter/) —
 Markdown zdroj vedle výsledku vysázeného tímto packem (CS/EN/DE).
+Vytištěné PDF s číslováním stránek a brand patičkou:
+[CS](https://filip-cokesh.github.io/mdprint-pack-starter/doc-cs-normal.pdf) ·
+[EN](https://filip-cokesh.github.io/mdprint-pack-starter/doc-en-normal.pdf) ·
+[DE](https://filip-cokesh.github.io/mdprint-pack-starter/doc-de-normal.pdf).
 
 Pack je obyčejná složka načítaná za běhu — mdprint se nepřekládá:
 
