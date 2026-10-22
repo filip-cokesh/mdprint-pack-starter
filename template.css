@@ -86,7 +86,7 @@ header.brand-header {
 
 /* ---- 4) Accented details ---------------------------------------------------- */
 .doc-title { color: var(--brand-accent); }          /* document title        */
-.fignum { color: var(--brand-accent); }             /* "Fig. N" numbers      */
+.fignum, .tabnum, .toc-num { color: var(--brand-accent); } /* "Fig. N" / "Table N" */
 nav.toc li::before { color: var(--brand-accent); }  /* TOC numbering         */
 
 /* ---- 5) Footer --------------------------------------------------------------
@@ -112,5 +112,5 @@ footer.brand-footer .brand-footer-name { font-weight: 700; color: var(--c-text);
   .brand-header .brand-logo-light { display: block !important; }
   .brand-header .brand-logo-dark { display: none !important; }
   header.brand-header { border-bottom-color: #1f4d2e; }
-  .doc-title, .fignum, nav.toc li::before { color: #1f4d2e; }
+  .doc-title, .fignum, .tabnum, .toc-num, nav.toc li::before { color: #1f4d2e; }
 }
